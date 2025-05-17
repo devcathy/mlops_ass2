@@ -1,0 +1,537 @@
+{
+    "fit_level": "finished",
+    "time_controller": {
+        "total_time_limit": null,
+        "model_time_limit": null,
+        "steps": [
+            "simple_algorithms",
+            "default_algorithms",
+            "ensemble",
+            "stack",
+            "ensemble_stacked"
+        ],
+        "algorithms": [
+            "Random Forest",
+            "Xgboost",
+            "LightGBM"
+        ],
+        "spend": [
+            {
+                "model_name": "prepare_data",
+                "model_type": "prepare_data",
+                "fit_level": "prepare_data",
+                "train_time": 0.0161130428314209
+            },
+            {
+                "model_name": "1_Optuna_LightGBM",
+                "model_type": "LightGBM",
+                "fit_level": "default_algorithms",
+                "train_time": 18.84607458114624
+            },
+            {
+                "model_name": "2_Optuna_Xgboost",
+                "model_type": "Xgboost",
+                "fit_level": "default_algorithms",
+                "train_time": 16.422661542892456
+            },
+            {
+                "model_name": "3_Optuna_RandomForest",
+                "model_type": "Random Forest",
+                "fit_level": "default_algorithms",
+                "train_time": 16.73678469657898
+            },
+            {
+                "model_name": "Ensemble",
+                "model_type": "Ensemble",
+                "fit_level": "ensemble",
+                "train_time": 0.9124221801757812
+            }
+        ],
+        "is_hill_climbing": false,
+        "is_stacking": true
+    },
+    "all_params": {
+        "default_algorithms": [
+            {
+                "additional": {
+                    "max_rounds": 10000,
+                    "early_stopping_rounds": 50,
+                    "max_rows_limit": null,
+                    "max_cols_limit": null
+                },
+                "preprocessing": {
+                    "columns_preprocessing": {},
+                    "target_preprocessing": [
+                        "na_exclude",
+                        "categorical_to_int"
+                    ],
+                    "ml_task": "binary_classification"
+                },
+                "validation_strategy": {
+                    "validation_type": "kfold",
+                    "k_folds": 10,
+                    "shuffle": true,
+                    "stratify": true,
+                    "X_path": "AutoML_1/X.data",
+                    "y_path": "AutoML_1/y.data",
+                    "results_path": "AutoML_1"
+                },
+                "learner": {
+                    "model_type": "LightGBM",
+                    "ml_task": "binary_classification",
+                    "n_jobs": -1,
+                    "objective": "binary",
+                    "num_leaves": 1553,
+                    "learning_rate": 0.1,
+                    "feature_fraction": 0.6372942274996019,
+                    "bagging_fraction": 0.649963737714838,
+                    "min_data_in_leaf": 2,
+                    "seed": 1234,
+                    "metric": "binary_logloss",
+                    "custom_eval_metric_name": null,
+                    "lambda_l1": 0.00015613577890072756,
+                    "lambda_l2": 0.005003670155001035,
+                    "bagging_freq": 5,
+                    "extra_trees": true,
+                    "num_boost_round": 1000,
+                    "early_stopping_rounds": 50,
+                    "cat_feature": [],
+                    "feature_pre_filter": false,
+                    "explain_level": 2
+                },
+                "automl_random_state": 1234,
+                "ml_task": "binary_classification",
+                "explain_level": 2,
+                "name": "1_Optuna_LightGBM",
+                "status": "trained",
+                "final_loss": 0.26753246879630216,
+                "train_time": 19.477532625198364,
+                "data_type": "original",
+                "optuna_time_budget": 600,
+                "optuna_init_params": {
+                    "Random Forest": {
+                        "n_estimators": {
+                            "low": 100,
+                            "high": 500,
+                            "step": 50,
+                            "distribution": "int_uniform"
+                        },
+                        "max_depth": {
+                            "low": 3,
+                            "high": 20,
+                            "step": 1,
+                            "distribution": "int_uniform"
+                        },
+                        "min_samples_split": {
+                            "low": 2,
+                            "high": 10,
+                            "step": 1,
+                            "distribution": "int_uniform"
+                        }
+                    },
+                    "Xgboost": {
+                        "n_estimators": {
+                            "low": 100,
+                            "high": 300,
+                            "step": 50,
+                            "distribution": "int_uniform"
+                        },
+                        "max_depth": {
+                            "low": 3,
+                            "high": 9,
+                            "step": 1,
+                            "distribution": "int_uniform"
+                        },
+                        "learning_rate": {
+                            "low": 0.01,
+                            "high": 0.2,
+                            "distribution": "log_uniform"
+                        }
+                    },
+                    "LightGBM": {
+                        "n_estimators": {
+                            "low": 100,
+                            "high": 400,
+                            "step": 50,
+                            "distribution": "int_uniform"
+                        },
+                        "num_leaves": {
+                            "low": 31,
+                            "high": 128,
+                            "distribution": "int_uniform"
+                        },
+                        "learning_rate": {
+                            "low": 0.01,
+                            "high": 0.1,
+                            "distribution": "log_uniform"
+                        }
+                    },
+                    "original_LightGBM": {
+                        "learning_rate": 0.1,
+                        "num_leaves": 1553,
+                        "lambda_l1": 0.00015613577890072756,
+                        "lambda_l2": 0.005003670155001035,
+                        "feature_fraction": 0.6372942274996019,
+                        "bagging_fraction": 0.649963737714838,
+                        "bagging_freq": 5,
+                        "min_data_in_leaf": 2,
+                        "extra_trees": true,
+                        "metric": "binary_logloss",
+                        "custom_eval_metric_name": null,
+                        "num_boost_round": 1000,
+                        "early_stopping_rounds": 50,
+                        "cat_feature": [],
+                        "feature_pre_filter": false,
+                        "seed": 1234
+                    },
+                    "original_Xgboost": {
+                        "eta": 0.05,
+                        "max_depth": 5,
+                        "lambda": 1.4668648312244355e-06,
+                        "alpha": 8.22322663436197e-07,
+                        "colsample_bytree": 0.3228568309919116,
+                        "subsample": 0.5758258292131195,
+                        "min_child_weight": 1,
+                        "objective": "binary:logistic",
+                        "eval_metric": "logloss",
+                        "max_rounds": 1000,
+                        "early_stopping_rounds": 50,
+                        "seed": 1234
+                    },
+                    "original_Random Forest": {
+                        "criterion": "entropy",
+                        "max_depth": 28,
+                        "min_samples_split": 19,
+                        "min_samples_leaf": 6,
+                        "max_features": 0.036068463600684,
+                        "max_steps": 10,
+                        "seed": 1234,
+                        "eval_metric_name": "logloss"
+                    }
+                },
+                "optuna_verbose": true,
+                "max_time_for_learner": 3600
+            },
+            {
+                "additional": {
+                    "max_rounds": 10000,
+                    "early_stopping_rounds": 50,
+                    "max_rows_limit": null,
+                    "max_cols_limit": null
+                },
+                "preprocessing": {
+                    "columns_preprocessing": {},
+                    "target_preprocessing": [
+                        "na_exclude",
+                        "categorical_to_int"
+                    ],
+                    "ml_task": "binary_classification"
+                },
+                "validation_strategy": {
+                    "validation_type": "kfold",
+                    "k_folds": 10,
+                    "shuffle": true,
+                    "stratify": true,
+                    "X_path": "AutoML_1/X.data",
+                    "y_path": "AutoML_1/y.data",
+                    "results_path": "AutoML_1"
+                },
+                "learner": {
+                    "model_type": "Xgboost",
+                    "ml_task": "binary_classification",
+                    "n_jobs": -1,
+                    "objective": "binary:logistic",
+                    "eta": 0.05,
+                    "max_depth": 5,
+                    "min_child_weight": 1,
+                    "subsample": 0.5758258292131195,
+                    "colsample_bytree": 0.3228568309919116,
+                    "seed": 1234,
+                    "eval_metric": "logloss",
+                    "lambda": 1.4668648312244355e-06,
+                    "alpha": 8.22322663436197e-07,
+                    "max_rounds": 1000,
+                    "early_stopping_rounds": 50,
+                    "explain_level": 2
+                },
+                "automl_random_state": 1234,
+                "ml_task": "binary_classification",
+                "explain_level": 2,
+                "name": "2_Optuna_Xgboost",
+                "status": "trained",
+                "final_loss": 0.2718523011045163,
+                "train_time": 17.05699133872986,
+                "data_type": "original",
+                "optuna_time_budget": 600,
+                "optuna_init_params": {
+                    "Random Forest": {
+                        "n_estimators": {
+                            "low": 100,
+                            "high": 500,
+                            "step": 50,
+                            "distribution": "int_uniform"
+                        },
+                        "max_depth": {
+                            "low": 3,
+                            "high": 20,
+                            "step": 1,
+                            "distribution": "int_uniform"
+                        },
+                        "min_samples_split": {
+                            "low": 2,
+                            "high": 10,
+                            "step": 1,
+                            "distribution": "int_uniform"
+                        }
+                    },
+                    "Xgboost": {
+                        "n_estimators": {
+                            "low": 100,
+                            "high": 300,
+                            "step": 50,
+                            "distribution": "int_uniform"
+                        },
+                        "max_depth": {
+                            "low": 3,
+                            "high": 9,
+                            "step": 1,
+                            "distribution": "int_uniform"
+                        },
+                        "learning_rate": {
+                            "low": 0.01,
+                            "high": 0.2,
+                            "distribution": "log_uniform"
+                        }
+                    },
+                    "LightGBM": {
+                        "n_estimators": {
+                            "low": 100,
+                            "high": 400,
+                            "step": 50,
+                            "distribution": "int_uniform"
+                        },
+                        "num_leaves": {
+                            "low": 31,
+                            "high": 128,
+                            "distribution": "int_uniform"
+                        },
+                        "learning_rate": {
+                            "low": 0.01,
+                            "high": 0.1,
+                            "distribution": "log_uniform"
+                        }
+                    },
+                    "original_LightGBM": {
+                        "learning_rate": 0.1,
+                        "num_leaves": 1553,
+                        "lambda_l1": 0.00015613577890072756,
+                        "lambda_l2": 0.005003670155001035,
+                        "feature_fraction": 0.6372942274996019,
+                        "bagging_fraction": 0.649963737714838,
+                        "bagging_freq": 5,
+                        "min_data_in_leaf": 2,
+                        "extra_trees": true,
+                        "metric": "binary_logloss",
+                        "custom_eval_metric_name": null,
+                        "num_boost_round": 1000,
+                        "early_stopping_rounds": 50,
+                        "cat_feature": [],
+                        "feature_pre_filter": false,
+                        "seed": 1234
+                    },
+                    "original_Xgboost": {
+                        "eta": 0.05,
+                        "max_depth": 5,
+                        "lambda": 1.4668648312244355e-06,
+                        "alpha": 8.22322663436197e-07,
+                        "colsample_bytree": 0.3228568309919116,
+                        "subsample": 0.5758258292131195,
+                        "min_child_weight": 1,
+                        "objective": "binary:logistic",
+                        "eval_metric": "logloss",
+                        "max_rounds": 1000,
+                        "early_stopping_rounds": 50,
+                        "seed": 1234
+                    },
+                    "original_Random Forest": {
+                        "criterion": "entropy",
+                        "max_depth": 28,
+                        "min_samples_split": 19,
+                        "min_samples_leaf": 6,
+                        "max_features": 0.036068463600684,
+                        "max_steps": 10,
+                        "seed": 1234,
+                        "eval_metric_name": "logloss"
+                    }
+                },
+                "optuna_verbose": true,
+                "max_time_for_learner": 3600
+            },
+            {
+                "additional": {
+                    "trees_in_step": 100,
+                    "train_cant_improve_limit": 1,
+                    "min_steps": 1,
+                    "max_steps": 50,
+                    "early_stopping_rounds": 50,
+                    "max_rows_limit": null,
+                    "max_cols_limit": null
+                },
+                "preprocessing": {
+                    "columns_preprocessing": {},
+                    "target_preprocessing": [
+                        "na_exclude",
+                        "categorical_to_int"
+                    ],
+                    "ml_task": "binary_classification"
+                },
+                "validation_strategy": {
+                    "validation_type": "kfold",
+                    "k_folds": 10,
+                    "shuffle": true,
+                    "stratify": true,
+                    "X_path": "AutoML_1/X.data",
+                    "y_path": "AutoML_1/y.data",
+                    "results_path": "AutoML_1"
+                },
+                "learner": {
+                    "model_type": "Random Forest",
+                    "ml_task": "binary_classification",
+                    "n_jobs": -1,
+                    "criterion": "entropy",
+                    "max_features": 0.036068463600684,
+                    "min_samples_split": 19,
+                    "max_depth": 28,
+                    "seed": 1234,
+                    "eval_metric_name": "logloss",
+                    "min_samples_leaf": 6,
+                    "max_steps": 10,
+                    "explain_level": 2
+                },
+                "automl_random_state": 1234,
+                "ml_task": "binary_classification",
+                "explain_level": 2,
+                "name": "3_Optuna_RandomForest",
+                "status": "trained",
+                "final_loss": 0.2736609963558227,
+                "train_time": 17.25055480003357,
+                "data_type": "original",
+                "optuna_time_budget": 600,
+                "optuna_init_params": {
+                    "Random Forest": {
+                        "n_estimators": {
+                            "low": 100,
+                            "high": 500,
+                            "step": 50,
+                            "distribution": "int_uniform"
+                        },
+                        "max_depth": {
+                            "low": 3,
+                            "high": 20,
+                            "step": 1,
+                            "distribution": "int_uniform"
+                        },
+                        "min_samples_split": {
+                            "low": 2,
+                            "high": 10,
+                            "step": 1,
+                            "distribution": "int_uniform"
+                        }
+                    },
+                    "Xgboost": {
+                        "n_estimators": {
+                            "low": 100,
+                            "high": 300,
+                            "step": 50,
+                            "distribution": "int_uniform"
+                        },
+                        "max_depth": {
+                            "low": 3,
+                            "high": 9,
+                            "step": 1,
+                            "distribution": "int_uniform"
+                        },
+                        "learning_rate": {
+                            "low": 0.01,
+                            "high": 0.2,
+                            "distribution": "log_uniform"
+                        }
+                    },
+                    "LightGBM": {
+                        "n_estimators": {
+                            "low": 100,
+                            "high": 400,
+                            "step": 50,
+                            "distribution": "int_uniform"
+                        },
+                        "num_leaves": {
+                            "low": 31,
+                            "high": 128,
+                            "distribution": "int_uniform"
+                        },
+                        "learning_rate": {
+                            "low": 0.01,
+                            "high": 0.1,
+                            "distribution": "log_uniform"
+                        }
+                    },
+                    "original_LightGBM": {
+                        "learning_rate": 0.1,
+                        "num_leaves": 1553,
+                        "lambda_l1": 0.00015613577890072756,
+                        "lambda_l2": 0.005003670155001035,
+                        "feature_fraction": 0.6372942274996019,
+                        "bagging_fraction": 0.649963737714838,
+                        "bagging_freq": 5,
+                        "min_data_in_leaf": 2,
+                        "extra_trees": true,
+                        "metric": "binary_logloss",
+                        "custom_eval_metric_name": null,
+                        "num_boost_round": 1000,
+                        "early_stopping_rounds": 50,
+                        "cat_feature": [],
+                        "feature_pre_filter": false,
+                        "seed": 1234
+                    },
+                    "original_Xgboost": {
+                        "eta": 0.05,
+                        "max_depth": 5,
+                        "lambda": 1.4668648312244355e-06,
+                        "alpha": 8.22322663436197e-07,
+                        "colsample_bytree": 0.3228568309919116,
+                        "subsample": 0.5758258292131195,
+                        "min_child_weight": 1,
+                        "objective": "binary:logistic",
+                        "eval_metric": "logloss",
+                        "max_rounds": 1000,
+                        "early_stopping_rounds": 50,
+                        "seed": 1234
+                    },
+                    "original_Random Forest": {
+                        "criterion": "entropy",
+                        "max_depth": 28,
+                        "min_samples_split": 19,
+                        "min_samples_leaf": 6,
+                        "max_features": 0.036068463600684,
+                        "max_steps": 10,
+                        "seed": 1234,
+                        "eval_metric_name": "logloss"
+                    }
+                },
+                "optuna_verbose": true,
+                "max_time_for_learner": 3600
+            }
+        ],
+        "ensemble": [
+            {
+                "model_type": "ensemble",
+                "is_stacked": false,
+                "name": "Ensemble",
+                "status": "trained",
+                "final_loss": 0.2646777925843277,
+                "train_time": 0.9124221801757812
+            }
+        ]
+    },
+    "adjust_validation": false
+}

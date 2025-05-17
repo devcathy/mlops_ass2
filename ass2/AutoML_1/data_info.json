@@ -1,0 +1,64 @@
+{
+    "columns": [
+        "Area",
+        "Perimeter",
+        "Major_Axis_Length",
+        "Minor_Axis_Length",
+        "Convex_Area",
+        "Equiv_Diameter",
+        "Eccentricity",
+        "Solidity",
+        "Extent",
+        "Roundness",
+        "Aspect_Ration",
+        "Compactness"
+    ],
+    "rows": 2000,
+    "cols": 12,
+    "target_is_numeric": false,
+    "columns_info": {
+        "Area": [
+            "scale"
+        ],
+        "Perimeter": [
+            "scale"
+        ],
+        "Major_Axis_Length": [
+            "scale"
+        ],
+        "Minor_Axis_Length": [
+            "scale"
+        ],
+        "Convex_Area": [
+            "scale"
+        ],
+        "Equiv_Diameter": [
+            "scale"
+        ],
+        "Eccentricity": [
+            "scale"
+        ],
+        "Solidity": [
+            "scale"
+        ],
+        "Extent": [
+            "scale"
+        ],
+        "Roundness": [
+            "scale"
+        ],
+        "Aspect_Ration": [
+            "scale"
+        ],
+        "Compactness": [
+            "scale"
+        ]
+    },
+    "target_info": [
+        "convert_0_1"
+    ],
+    "n_features": 12,
+    "is_sample_weighted": false,
+    "is_fairness_applied": false,
+    "n_classes": 2
+}

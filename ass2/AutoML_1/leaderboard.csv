@@ -1,0 +1,5 @@
+name,model_type,metric_type,metric_value,train_time
+1_Optuna_LightGBM,LightGBM,logloss,0.26753246879630216,19.48
+2_Optuna_Xgboost,Xgboost,logloss,0.2718523011045163,17.06
+3_Optuna_RandomForest,Random Forest,logloss,0.2736609963558227,17.25
+Ensemble,Ensemble,logloss,0.2646777925843277,0.91

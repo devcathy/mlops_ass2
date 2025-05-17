@@ -1,0 +1,13 @@
+feature,shap_importance
+Compactness,0.58726233
+Eccentricity,0.31383225
+Major_Axis_Length,0.25579047
+Aspect_Ration,0.24464841
+Minor_Axis_Length,0.22309263
+Roundness,0.13577521
+Perimeter,0.123413965
+Solidity,0.097648755
+Extent,0.094099134
+Area,0.07996278
+Equiv_Diameter,0.07045494
+Convex_Area,0.06646149
